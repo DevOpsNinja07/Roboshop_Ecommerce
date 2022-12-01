@@ -3,6 +3,6 @@ dnf module disable mysql -y
 yum install mysql-community-server -y
 systemctl enable mysqld
 systemctl start mysqld
-echo "ALTER USER 'root'@'localhost' IDENTIFIED BY Roboshop@1; " > /tmp/root-pass-sql
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Roboshop@1' ; " > /tmp/root-pass-sql
 DEFAULTPASS=$(grep 'A temporary password ' /var/log/mysqld.log | awk '{print $NF}')
 cat /tmp/root-pass-sql | mysql --connect-expired-password -uroot -p"${DEFAULTPASS}"
