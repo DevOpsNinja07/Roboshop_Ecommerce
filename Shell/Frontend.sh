@@ -1,4 +1,4 @@
-#!/bin/bash
+
 yum install ngnix -y
 
 #download the HTDOCS content and deploy under the Nginx path
