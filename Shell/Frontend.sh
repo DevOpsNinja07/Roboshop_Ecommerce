@@ -1,6 +1,5 @@
 
 yum install ngnix -y
-
 #download the HTDOCS content and deploy under the Nginx path
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
 #Deploy the downloaded content in Nginx Default Location
