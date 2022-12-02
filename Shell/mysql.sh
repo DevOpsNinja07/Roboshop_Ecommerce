@@ -32,13 +32,16 @@ fi
 echo show databases | mysql -uroot -pRoboshop@1
 if [ $? -ne 0];
 then
+
 echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Roboshop@1' ; " > /tmp/root-pass-sql
 DEFAULTPASS=$(grep 'A temporary password ' /var/log/mysqld.log | awk '{print $NF}')
 cat /tmp/root-pass-sql | mysql --connect-expired-password -uroot -p"${DEFAULTPASS}"
+
 fi
+
 if [$? -eq 0]
 then
-  echo "SUCESS"
+  echo SUCESS
 else
-  echo "FAILURE"
+  echo FAILURE
 fi
