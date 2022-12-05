@@ -1,10 +1,11 @@
+source common.sh
 if [ -z "$1" ]; then
   echo "INPUT PASSWORD ARGUMENT!!"
   exit
 fi
 RoboShopMYSQLPASS=$1
 
-echo Downloading Repo
+PRINT Downloading Repo
 curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/roboshop-devops-project/mysql/main/mysql.repo
 if [ $? -eq 0 ]; then
   echo SUCESS
