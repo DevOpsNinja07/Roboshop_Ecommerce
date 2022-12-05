@@ -5,19 +5,19 @@ if [ -z "$1" ]; then
 fi
 RoboShopMYSQLPASS=$1
 
-PRINT Downloading Repo
+PRINT "Downloading Repo"
 curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/roboshop-devops-project/mysql/main/mysql.repo
 STATISTICS $?
 
-PRINT Disabling mysql v8
+PRINT "Disabling mysql v8"
 dnf module disable mysql -y
 STATISTICS $?
 
-PRINT installing mysql
+PRINT "installing mysql"
 yum install mysql-community-server -y
 STATISTICS $?
 
-PRINT  starting and enabling mysql services
+PRINT  "starting and enabling mysql services"
 systemctl enable mysqld
 systemctl start mysqld
 STATISTICS $?
@@ -29,5 +29,5 @@ DEFAULTPASS=$(grep 'A temporary password ' /var/log/mysqld.log | awk '{print $NF
 cat /tmp/root-pass-sql | mysql --connect-expired-password -uroot -p"${DEFAULTPASS}"
 
 fi
-PRINT password change
+PRINT "password changed"
 STATISTICS $?
