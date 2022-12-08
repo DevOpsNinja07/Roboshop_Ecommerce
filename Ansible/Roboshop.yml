@@ -1,4 +1,4 @@
 - name: Roboshop Component
   hosts: all
   roles:
-    - "{{ foo }}"
+    - "{{ ROLE_NAME }}"
