@@ -1,0 +1,4 @@
+- name: Roboshop Component
+  hosts: all
+  roles:
+    -  "{{ ROLE_NAME }}"
